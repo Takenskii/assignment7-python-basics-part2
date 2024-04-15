@@ -10,7 +10,17 @@ is_prime(10) -> False
 
 def is_prime(n: int) -> bool:
     # write your code here
-    pass
+    if n == 1:
+        return False
+    
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    
+    return True
+    
+print(is_prime(1))
+pass
 
 """
 Exercise-2: nth_fibonacci
@@ -24,7 +34,15 @@ nth_fibonacci(9) -> 21
 
 def nth_fibonacci(n: int) -> int:
     # write your code here
-    pass
+    if n < 0:
+        print("Incorrect input")
+    elif n <= 1:
+        return n
+    else:
+        return nth_fibonacci(n-1) + nth_fibonacci(n-2)
+    
+print(nth_fibonacci(6))    
+pass
 
 """
 Exercise-3: factorial
@@ -37,7 +55,9 @@ factorial(6) -> 720
 
 def factorial(n: int) -> int:
     # write your code here
-    pass
+    return 1 if (n == 1 or n == 0) else n * factorial(n - 1)
+
+print(factorial(5))
 
 """
 Exercise-4: count_vowels
@@ -51,7 +71,14 @@ count_vowels("world") -> 1
 
 def count_vowels(s: str) -> int:
     # write your code here
-    pass
+    VOWELS = {'a', 'e', 'u', 'o', 'i'}
+    count = 0
+    for char in s:
+        if char in VOWELS:
+            count += 1
+    return count
+    
+print(count_vowels('tower'))
 
 """
 Exercise-5: sum_of_digits
@@ -65,7 +92,14 @@ sum_of_digits(98765) -> 35
 
 def sum_of_digits(n: int) -> int:
     # write your code here
-    pass
+    sum = 0
+    while(n != 0):
+        sum = sum + (n % 10)
+        n = n // 10
+    return sum
+
+print(sum_of_digits(12345))
+pass
 
 
 """
@@ -79,7 +113,10 @@ reverse_string("world") -> "dlrow"
 
 def reverse_string(s: str) -> str:
     # write your code here
-    pass
+    return s[::-1]
+
+print(reverse_string('hello'))
+pass
 
 
 """
@@ -94,8 +131,15 @@ sum_of_squares(5) -> 55
 
 def sum_of_squares(n: int) -> int:
     # write your code here
+    sum = 0
+    for i in range(1, n + 1, 1):
+        square = i * i
+        sum = sum + square
+
+    return sum
     pass
 
+print(sum_of_squares(4))
 
 """
 Exercise-8: collatz_sequence_length
@@ -109,7 +153,23 @@ collatz_sequence_length(27) -> 112
 
 def collatz_sequence_length(n: int) -> int:
     # write your code here
-    pass
+    length = 1
+    
+    # Generate the Collatz sequence until n becomes 1
+    while n != 1:
+        # If n is even, divide it by 2
+        if n % 2 == 0:
+            n //= 2
+        # If n is odd, multiply it by 3 and add 1
+        else:
+            n = 3 * n + 1
+        # Increment the length of the sequence
+        length += 1
+    
+    return length
+
+print(collatz_sequence_length(27))
+pass
 
 
 """
@@ -124,7 +184,15 @@ is_leap_year(1900) -> False
 
 def is_leap_year(year: int) -> bool:
     # write your code here
-    pass
+    if year % 4 == 0:
+        # Except for years divisible by 100 but not divisible by 400
+        if year % 100 == 0:
+            return year % 400 == 0
+        return True
+    return False
+
+print(is_leap_year(1999))
+pass
 
 
 """
@@ -139,7 +207,11 @@ count_words("This is a test") -> 4
 
 def count_words(s: str) -> int:
     # write your code here
-    pass
+    words = s.split()
+    return len(words)
+
+print(count_words('Hello world'))
+pass
 
 
 """
@@ -155,6 +227,7 @@ is_palindrome("hello") -> False
 
 def is_palindrome(s: str) -> bool:
     # write your code here
+    
     pass
 
 """
