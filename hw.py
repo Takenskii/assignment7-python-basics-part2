@@ -155,17 +155,13 @@ def collatz_sequence_length(n: int) -> int:
     # write your code here
     length = 1
     
-    # Generate the Collatz sequence until n becomes 1
-    while n != 1:
-        # If n is even, divide it by 2
+    while n != 1:   
         if n % 2 == 0:
             n //= 2
-        # If n is odd, multiply it by 3 and add 1
         else:
             n = 3 * n + 1
-        # Increment the length of the sequence
         length += 1
-    
+
     return length
 
 print(collatz_sequence_length(27))
@@ -185,7 +181,6 @@ is_leap_year(1900) -> False
 def is_leap_year(year: int) -> bool:
     # write your code here
     if year % 4 == 0:
-        # Except for years divisible by 100 but not divisible by 400
         if year % 100 == 0:
             return year % 400 == 0
         return True
@@ -227,7 +222,15 @@ is_palindrome("hello") -> False
 
 def is_palindrome(s: str) -> bool:
     # write your code here
-    
+    return s == s[::-1]
+ 
+s = "racecar"
+ans = is_palindrome(s)
+ 
+if ans:
+    print("Yes")
+else:
+    print("No")
     pass
 
 """
@@ -243,7 +246,15 @@ sum_of_multiples(20, 7, 11) -> 168
 
 def sum_of_multiples(n: int, x: int, y: int) -> int:
     # write your code here
-    pass
+    sum = 0
+    for i in range(0, n + 1, 1):
+        if i % x == 0 or i % y == 0:
+            sum += i
+    return sum
+
+
+print(sum_of_multiples(10, 3, 5))
+pass
 
 
 """
@@ -258,7 +269,18 @@ gcd(27, 15) -> 3
 
 def gcd(a: int, b: int) -> int:
     # write your code here
-    pass
+    if a == 0:
+        return b
+    if b == 0:
+        return a
+    if a == b:
+        return a
+    if (a > b):
+        return gcd(a - b, b)
+    return gcd(a, b - a)
+
+print(gcd(27, 15))
+pass
 
 
 """
@@ -272,8 +294,11 @@ lcm(6, 8) -> 24
 """
 
 def lcm(a: int, b: int) -> int:
+    return a // gcd(a, b) * b
     # write your code here
-    pass
+
+print(lcm(5, 7))
+pass
 
 
 """
@@ -290,7 +315,14 @@ count_characters("apple", "p") -> 2
 
 def count_characters(s: str, c: str) -> int:
     # write your code here
-    pass
+    count = 0
+    for char in s:
+        if char == c:
+            count += 1
+    return count
+
+print(count_characters('Hello World', 'o'))
+pass
 
 
 """
@@ -305,7 +337,15 @@ digit_count(4567) -> 4
 
 def digit_count(n: int) -> int:
     # write your code here
-    pass
+    count = 0
+    while (n != 0):
+        n = n // 10
+        count += 1
+
+    return count
+
+print(digit_count(1234))
+pass
 
 
 """
@@ -320,7 +360,17 @@ is_power_of_two(10) -> False
 
 def is_power_of_two(n: int) -> bool:
     # write your code here
-    pass
+    if (n == 0):
+        return False
+    while (n != 1):
+            if (n % 2 != 0):
+                return False
+            n = n // 2
+             
+    return True
+
+print(is_power_of_two(16))
+pass
 
 
 """
@@ -335,7 +385,13 @@ sum_of_cubes(4) -> 100
 
 def sum_of_cubes(n: int) -> int:
     # write your code here
-    pass
+    sum = 0
+    for i in range(1, n + 1):
+        sum += i ** 3
+    return sum
+
+print(sum_of_cubes(3))
+pass
 
 
 """
@@ -350,7 +406,16 @@ is_perfect_square(10) -> False
 
 def is_perfect_square(n: int) -> bool:
     # write your code here
-    pass
+    import math 
+
+    if (math.ceil(math.sqrt(n)) ==
+       math.floor(math.sqrt(n))):
+        print("perfect square")
+    else:
+        print("not a perfect square")
+
+print(is_perfect_square(9))
+pass
 
 
 """
@@ -364,5 +429,15 @@ is_armstrong_number(370) -> True
 """
 
 def is_armstrong_number(n: int) -> bool:
-    # write your code here
-    pass
+#        # write your code here
+    number = str(n)
+    n = len(number)
+    output = 0
+    for i in number:
+        output = output + int(i) ** n
+    if output == int(number):
+        return True
+    else:
+        return False
+    
+print(is_armstrong_number(153))
