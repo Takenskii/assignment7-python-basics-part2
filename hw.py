@@ -7,11 +7,12 @@ Example:
 is_prime(7) -> True
 is_prime(10) -> False
 """
-#  Sam, this solution is most effective as you can see here i added
+#  Sam, this solution is the most efficient as you can see here i added
 #  two more conditions n%2==0 or n%3==0, so I can automatically 
 #  exclude all multiples of 2 and 3 like i = 4, 6, 8, 9, 10, 12, 14 
-#  etc. As a result i start from i = 5 and increment each step for 6 
-#  hereby I am checking only divisors like 5, 11, 17, 23 untill sqrt(n);  
+#  etc. As a result if my number is not divided by 2 or 3 i can skip checking such numbers
+#  like i = 4, 6, 8, 9, 10, 12, 14, 15, 16, 18 etc. And in that case I start checking 
+#  from i = 5 and increment each step by 6 until i < sqrt(n); Following that I am checking only divisors like 5, 11, 17, 23 etc;   
 
 def is_prime(n: int) -> bool:
     # write your code here
@@ -67,6 +68,7 @@ def factorial(n: int) -> int:
     return 1 if (n == 1 or n == 0) else n * factorial(n - 1)
 
 print(factorial(5))
+pass
 
 """
 Exercise-4: count_vowels
