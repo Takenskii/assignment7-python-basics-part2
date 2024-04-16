@@ -410,13 +410,12 @@ def is_perfect_square(n: int) -> bool:
 
     if (math.ceil(math.sqrt(n)) ==
        math.floor(math.sqrt(n))):
-        print("perfect square")
+        return True
     else:
-        print("not a perfect square")
+        return False
 
-print(is_perfect_square(9))
+print(is_perfect_square(10))
 pass
-
 
 """
 Exercise-20: is_armstrong_number
@@ -429,7 +428,7 @@ is_armstrong_number(370) -> True
 """
 
 def is_armstrong_number(n: int) -> bool:
-#        # write your code here
+    # write your code here
     number = str(n)
     n = len(number)
     output = 0
