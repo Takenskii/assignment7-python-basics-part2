@@ -7,19 +7,28 @@ Example:
 is_prime(7) -> True
 is_prime(10) -> False
 """
+#  Sam, this solution is most effective as you can see here i added
+#  two more conditions n%2==0 or n%3==0, so I can automatically 
+#  exclude all multiples of 2 and 3 like i = 4, 6, 8, 9, 10, 12, 14 
+#  etc. As a result i start from i = 5 and increment each step for 6 
+#  hereby I am checking only divisors like 5, 11, 17, 23 untill sqrt(n);  
 
 def is_prime(n: int) -> bool:
     # write your code here
     if n == 1:
         return False
-    
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
+    if n == 2 or n == 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+
+    for i in range(5, int(n ** 0.5) + 1, 6):
+        if n % i == 0 or n % (i + 2) == 0:
             return False
     
     return True
     
-print(is_prime(1))
+print(is_prime(1032))
 pass
 
 """
@@ -222,16 +231,13 @@ is_palindrome("hello") -> False
 
 def is_palindrome(s: str) -> bool:
     # write your code here
-    return s == s[::-1]
- 
-s = "racecar"
-ans = is_palindrome(s)
- 
-if ans:
-    print("Yes")
-else:
-    print("No")
-    pass
+    new_s = s[::-1]
+    if new_s == s:
+        return True
+    return False
+
+print(is_palindrome("radar"))
+pass
 
 """
 Exercise-12: sum_of_multiples
