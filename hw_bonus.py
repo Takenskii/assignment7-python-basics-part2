@@ -11,6 +11,7 @@ count_substrings("aaaaaa", "aa") -> 3
 
 def count_substrings(s: str, subs: str) -> int:
     # write your code here
+    
     pass
 
 """
@@ -25,7 +26,12 @@ find_smallest_divisor(49) -> 7
 
 def find_smallest_divisor(n: int) -> int:
     # write your code here
-    pass
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return i
+        return n
+    
+print(find_smallest_divisor(21))
 
 
 """
@@ -42,7 +48,15 @@ check_divisible_by_any(23, "2 3 5") -> False
 
 def check_divisible_by_any(n: int, divisors: str) -> bool:
     # write your code here
-    pass
+    divisor_list = list(map(int, divisors.split()))
+    for divisor in divisor_list:
+        if n % divisor == 0:
+            return True
+    
+    return False
+
+print(check_divisible_by_any(24, "2 3 5"))
+pass
 
 
 """
@@ -58,7 +72,21 @@ find_nth_root(81, 4) -> 3.0
 
 def find_nth_root(x: float, n: int) -> float:
     # write your code here
-    pass
+    left = 0.0
+    right = max(1.0, abs(x))
+    epsilon = 0.001
+
+    while right - left > epsilon:
+        mid = (left + right) / 2
+    if mid ** n < x:
+        left = mid
+    else:
+        right = mid
+    
+    return round(mid, 3)
+
+print(find_nth_root(8.0, 3))
+pass
 
 
 
