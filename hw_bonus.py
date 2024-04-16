@@ -29,9 +29,8 @@ def find_smallest_divisor(n: int) -> int:
     for i in range(2, int(n ** 0.5) + 1):
         if n % i == 0:
             return i
-        return n
     
-print(find_smallest_divisor(21))
+print(find_smallest_divisor(169))
 
 
 """
@@ -72,21 +71,8 @@ find_nth_root(81, 4) -> 3.0
 
 def find_nth_root(x: float, n: int) -> float:
     # write your code here
-    left = 0.0
-    right = max(1.0, abs(x))
-    epsilon = 0.001
-
-    while right - left > epsilon:
-        mid = (left + right) / 2
-    if mid ** n < x:
-        left = mid
-    else:
-        right = mid
-    
-    return round(mid, 3)
-
-print(find_nth_root(8.0, 3))
-pass
+   
+    pass
 
 
 
