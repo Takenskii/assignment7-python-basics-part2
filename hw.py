@@ -188,18 +188,31 @@ Example:
 is_leap_year(2000) -> True
 is_leap_year(1900) -> False
 """
-
-def is_leap_year(year: int) -> bool:
-    # write your code here
+# version 1
+def is_leap_year(year: int):
     if year % 4 == 0:
         if year % 100 == 0:
-            return year % 400 == 0
-        return True
-    return False
+            if year % 400 == 0:
+                print(f"a year {year} is a leap year")
+            else:
+                print(f"a year {year} is not a leap year")
+        else:
+            print(f"year {year} is a leep year")
+    else:
+        print(f"year {year} is not a leap year")
 
 print(is_leap_year(1999))
-pass
 
+# version2
+def is_leap_yearr(year: int) -> bool:
+    if year % 4 == 0 and year % 100 == 0 and year % 400 == 0:
+         print(f"{year} is a leap year")
+    elif year % 4 == 0 and year % 100 != 0:
+         print(f"{year} is a leap year")
+    else:
+         print(f"{year} is not a leap year")
+
+is_leap_yearr(1999)
 
 """
 Exercise-10: count_words
