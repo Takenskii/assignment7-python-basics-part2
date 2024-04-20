@@ -1,3 +1,4 @@
+import math
 """
 Exercise-1: is_prime
 Write a function "is_prime(n: int) -> bool" that takes an integer 'n' 
@@ -30,7 +31,6 @@ def is_prime(n: int) -> bool:
     return True
     
 print(is_prime(1032))
-pass
 
 """
 Exercise-2: nth_fibonacci
@@ -52,7 +52,6 @@ def nth_fibonacci(n: int) -> int:
         return nth_fibonacci(n-1) + nth_fibonacci(n-2)
     
 print(nth_fibonacci(6))    
-pass
 
 """
 Exercise-3: factorial
@@ -68,7 +67,6 @@ def factorial(n: int) -> int:
     return 1 if (n == 1 or n == 0) else n * factorial(n - 1)
 
 print(factorial(5))
-pass
 
 """
 Exercise-4: count_vowels
@@ -110,8 +108,6 @@ def sum_of_digits(n: int) -> int:
     return sum
 
 print(sum_of_digits(12345))
-pass
-
 
 """
 Exercise-6: reverse_string
@@ -127,8 +123,6 @@ def reverse_string(s: str) -> str:
     return s[::-1]
 
 print(reverse_string('hello'))
-pass
-
 
 """
 Exercise-7: sum_of_squares
@@ -148,7 +142,6 @@ def sum_of_squares(n: int) -> int:
         sum = sum + square
 
     return sum
-    pass
 
 print(sum_of_squares(4))
 
@@ -176,8 +169,6 @@ def collatz_sequence_length(n: int) -> int:
     return length
 
 print(collatz_sequence_length(27))
-pass
-
 
 """
 Exercise-9: is_leap_year
@@ -230,8 +221,6 @@ def count_words(s: str) -> int:
     return len(words)
 
 print(count_words('Hello world'))
-pass
-
 
 """
 Exercise-11: is_palindrome
@@ -252,7 +241,6 @@ def is_palindrome(s: str) -> bool:
     return False
 
 print(is_palindrome("radar"))
-pass
 
 """
 Exercise-12: sum_of_multiples
@@ -275,8 +263,6 @@ def sum_of_multiples(n: int, x: int, y: int) -> int:
 
 
 print(sum_of_multiples(10, 3, 5))
-pass
-
 
 """
 Exercise-13: gcd
@@ -301,7 +287,6 @@ def gcd(a: int, b: int) -> int:
     return gcd(a, b - a)
 
 print(gcd(27, 15))
-pass
 
 
 """
@@ -319,8 +304,6 @@ def lcm(a: int, b: int) -> int:
     # write your code here
 
 print(lcm(5, 7))
-pass
-
 
 """
 Exercise-15: count_characters
@@ -330,7 +313,6 @@ takes a string 's' and a character 'c', and returns the number of occurrences of
 Example:
 count_characters("hello world", "l") -> 3
 count_characters("apple", "p") -> 2
-
 
 """
 
@@ -343,8 +325,6 @@ def count_characters(s: str, c: str) -> int:
     return count
 
 print(count_characters('Hello World', 'o'))
-pass
-
 
 """
 Exercise-16: digit_count
@@ -366,8 +346,6 @@ def digit_count(n: int) -> int:
     return count
 
 print(digit_count(1234))
-pass
-
 
 """
 Exercise-17: is_power_of_two
@@ -391,8 +369,6 @@ def is_power_of_two(n: int) -> bool:
     return True
 
 print(is_power_of_two(16))
-pass
-
 
 """
 Exercise-18: sum_of_cubes
@@ -412,8 +388,6 @@ def sum_of_cubes(n: int) -> int:
     return sum
 
 print(sum_of_cubes(3))
-pass
-
 
 """
 Exercise-19: is_perfect_square
@@ -425,18 +399,16 @@ is_perfect_square(9) -> True
 is_perfect_square(10) -> False
 """
 
-def is_perfect_square(n: int) -> bool:
-    # write your code here
-    import math 
+def is_perfect_square(number: int) -> bool:
 
-    if (math.ceil(math.sqrt(n)) ==
-       math.floor(math.sqrt(n))):
+    if number < 0:
+        print("Invalid number")
+    n = int(math.sqrt(number))
+    if n * n == number:
         return True
-    else:
-        return False
+    return False
 
-print(is_perfect_square(10))
-pass
+print(is_perfect_square(82))
 
 """
 Exercise-20: is_armstrong_number
